@@ -1,0 +1,145 @@
+<div class="page__content__charts" ng-controller="ChartController">
+    <section class="page__content__header">
+        <div class="page__content__header__title inline-block"><span class="font-huge blue">REPORTS</span></div>
+        <div class="page__content__header__usernav inline-block text-right">
+            <nav class="inline-list">
+                <ul>
+                    <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
+                    <li><i class="fa fa-cog" aria-hidden="true"></i></li>
+                    <li>
+                        <div class="dropdown-user">
+                            <div class="dropdown-user-btn">
+                                <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                                <span class="font-small dark-grey">Jane Smith</span> <span class="blue">&#8964;</span>
+                            </div>
+                            <div class="dropdown-user-content">
+                                <a href="#">My Account</a>
+                                <a href="#">Settings</a>
+                                <a href="#">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section class="page__content__reports">
+        <div class="page__content__reports__title dpl-inline-block">
+            <h2 class="blue">CHARGEBACKGURUS</h2>
+        </div>
+        <div class="page__content__reports__filters display-inline forms full-width">
+            <div class="form-filter">
+                <input type="text">
+                <button class="button bg-blue">Search</button>
+            </div>
+            <div class="form-filter">
+                <div class="div-select">
+                    <label for="selectReport">Report</label>
+                    <select id="selectReport" name="listOptions" class="form-select" ng-model="reporttype">
+    		    		<option value="notFought" selected="selected">Not Fought</option>
+    		    		<option value="TrueFraud">True Fraud</option>
+    		    		<option value="FriendlyFraud">Friendly Fraud</option>
+    		    		<option value="ExcludedReason">Excluded Reason</option>
+    		    		<option value="ChargebackNotification">Chargeback Notification</option>
+    		    		<option value="SecondChargeback">Second Chargeback</option>
+    		    		<option value="InArbitration">In Arbitration</option>
+    		    		<option value="PreArbitration">Pre Arbitration</option>
+    		    	</select>
+                    <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page__content__datefilters">
+        <h2 class="page__content__datefilters__title">Chargeback {{reporttype}} Summary</h2>
+        <form class="forms">
+            <div class="filter-group form-filter">
+                <div class="filter-block">
+                    <input type="radio" id="radio7Days" name="days" checked class="toggle">
+                    <label for="radio7Days">7 Days</label>
+                    <input type="radio" id="radio30Days" name="days" class="toggle">
+                    <label for="radio30Days">Last 30 Days</label>
+                </div>
+            </div>
+            <div class="form-filter">
+                <div class="div-select">
+                    <label for="month" class="filter-textbox">Month</label>
+                    <select id="month" name="month" class="form-select">
+                        <option value="">Month</option>
+                    </select>
+                    <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                </div>
+            </div>
+            <div class="form-filter">
+                <div class="div-select">
+                    <label for="year" class="filter-textbox">Year</label>
+                    <select id="year" name="year" class="form-select">
+                        <option value="">Month</option>
+                    </select>
+                    <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                </div>
+            </div>
+            <div class="form-filter">
+                <label for="to" class="filter-textbox">To</label>
+                <input type="text" name="to">
+            </div>
+            <div class="form-filter">
+                <input type="text" name="from">
+                <button class="button bg-blue">Apply</button>
+            </div>
+        </form>
+    </section>
+    <section class="page__content__charttools">
+        <form>
+            <div class="filter-group">
+                <div class="filter-block">
+                    <span class="filter-block-title">AGREGATOR</span>
+                    <input type="radio" id="radioPerc" name="agregator" checked class="toggle">
+                    <label for="radioPerc" class="left-label">%</label>
+                    <input type="radio" id="radioNumber" name="agregator" class="toggle">
+                    <label for="radioNumber" class="middle-label">#</label>
+                    <input type="radio" id="radioAvg" name="agregator" class="toggle">
+                    <label for="radioAvg" class="right-label">AVG</label>
+                </div>
+                <div class="filter-block">
+                    <span class="filter-block-title">CHART TYPE</span>
+                    <input type="radio" id="radioBars" name="charttype" ng-click="toggleChart()" checked>
+                    <label for="radioBars" class="left-label"><i class="fa fa-bar-chart" aria-hidden="true"></i></label>
+                    <input type="radio" id="radioPie" name="charttype" ng-click="toggleChart()">
+                    <label for="radioPie" class="right-label"><i class="fa fa-pie-chart" aria-hidden="true"></i></label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <div class="filter-block">
+                    <span class="filter-block-title">CARD TYPE</span>
+                    <input type="radio" name="cardtype" id="radioVisa" ng-click="handleFilter('cardType', '1')" checked>
+                    <label for="radioVisa" class="left-label"><i class="fa fa-cc-visa" aria-hidden="true"></i></label>
+                    <input type="radio" name="cardtype" id="radioMastercard" ng-click="handleFilter('cardType', '2')">
+                    <label for="radioMastercard" class="middle-label"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></label>
+                    <input type="radio" name="cardtype" id="radioCardAll" ng-click="dataClayReset()">
+                    <label for="radioCardAll" class="right-label">ALL</label>
+                </div>
+            </div>
+            <div class="filter-group">
+                <div class="filter-block font-small">
+                    <input type="radio" id="radioOnshore" name="shore" ng-click="handleFilter('shore', '1')" checked>
+                    <label for="radioOnshore" class="left-label">ON SHORE</label>
+                    <input type="radio" id="radioOffshore" name="shore" ng-click="handleFilter('shore', '2')">
+                    <label for="radioOffshore" class="middle-label">OFF SHORE</label>
+                    <input type="radio" id="radioShoreAll" name="shore" ng-click="dataClayReset()">
+                    <label for="radioShoreAll" class="right-label">ALL</label>
+                </div>
+            </div>
+        </form>
+    </section>
+    <section class="page__content__charts">
+        <div id="barsChart" class="data-chart">
+            <d3-bars dataoriginal="dataoriginal" dataclay="dataclay" reporttype="reporttype" on-click="onClick(item, event)"></d3-bars>
+        </div>
+        <div id="pieChart" class="data-chart">
+            <d3-pie dataoriginal="dataoriginal" dataclay="dataclay" reporttype="reporttype" on-click="onClick(item, event)"></d3-pie>
+        </div>
+    </section>
+</div>

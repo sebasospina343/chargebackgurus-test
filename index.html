@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cgApp">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+	<title>Chargeback Gurus Candidate Test</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body ng-controller="rcController">
+	<div class="page">
+		<div class="page__menu" id="pageMenu">
+			<section class="page__menu__header">
+				<div class="page__menu__header__logo"><img src="img/logo.png" class="logo"></div>
+				<div class="page__menu__header__burger" id="burgerIcon"><i class="fa fa-bars" aria-hidden="true"></i></div>
+			</section>
+
+			<div class="clear"></div>
+
+			<section class="page__menu__links" id="pageMenuLinks">
+				<ul>
+					<li>
+						<a ui-sref="dashboard">
+							<span class="link-icon"><i class="fa fa-tachometer padding-right" aria-hidden="true"></i></span>
+							<span>Dashboard</span>
+						</a>
+					</li>
+					<li>
+						<a ui-sref="reports">
+							<span class="link-icon"><i class="fa fa-pie-chart padding-right" aria-hidden="true"></i></span>
+							<span>Reports</span>
+						</a>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-credit-card padding-right" aria-hidden="true"></i></span> 
+						<span>Manage Chargeback</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-home padding-right" aria-hidden="true"></i></span>
+						<span>Manage MIDs</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-user padding-right" aria-hidden="true"></i></span>
+						<span>Manage Clients</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-calendar padding-right" aria-hidden="true"></i></span>
+						<span>Manage Partners</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-exclamation-triangle padding-right" aria-hidden="true"></i></span>
+						<span>Prevention Alerts</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-ticket padding-right" aria-hidden="true"></i></span>
+						<span>Manage Tickets</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-users padding-right" aria-hidden="true"></i></span>
+						<span>Manage Employees</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-calculator padding-right" aria-hidden="true"></i></span>
+						<span>Accounting</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-cogs padding-right" aria-hidden="true"></i></span>
+						<span>Config</span>
+					</li>
+					<li>
+						<span class="link-icon"><i class="fa fa-calendar padding-right" aria-hidden="true"></i></span>
+						<span>Schedule Consultation</span>
+					</li>
+				</ul>
+			</section>
+		</div>
+		<div class="page__content">
+			<ui-view></ui-view>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/directives.js"></script>
+	<script type="text/javascript" src="js/filters.js"></script>
+	<script type="text/javascript" src="js/animations.js"></script>
+</body>
+
+
+
+</html>

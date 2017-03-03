@@ -1,0 +1,224 @@
+<section class="page__content__header" ng-controller="ChartController">
+    <div class="page__content__header__title inline-block"><span class="font-huge blue">REASON CODE</span></div>
+    <div class="page__content__header__usernav inline-block text-right">
+        <nav class="inline-list">
+            <ul>
+                <li><i class="fa fa-bell-o" aria-hidden="true"></i></li>
+                <li><i class="fa fa-cog" aria-hidden="true"></i></li>
+                <li>
+                    <div class="dropdown-user">
+                        <div class="dropdown-user-btn">
+                            <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                            <span class="font-small dark-grey">Jane Smith</span> <span class="blue">&#8964;</span>
+                        </div>
+                        <div class="dropdown-user-content">
+                            <a href="#">My Account</a>
+                            <a href="#">Settings</a>
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<div class="clear"></div>
+<div class="page__content__search">
+    <form class="forms">
+        <div class="display-inline search-bar">
+            <label class="search-reasons-label">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" name="searchReasonCode" class="search-reasons" ng-model="filterText" placeholder="Reason Code Description">
+            </label>
+            <div class="page__content__search__filters display-inline">
+                <div class="form-block">
+                    <label for="filterCardType">Card Type</label>
+                    <div class="div-select">
+                        <select id="filterCardType" name="listOptions" class="form-select" ng-model="filterCardType">
+                            <option value="">All</option>
+                            <option value="1">Visa</option>
+                            <option value="2">Mastercard</option>
+                        </select>
+                        <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+                <div class="form-block">
+                <label for="filterIsPreventable">Is Preventable</label>
+                    <div class="div-select">
+                        <select id="filterIsPreventable" name="filterIsPreventable" class="form-select" ng-model="filterIsPreventable">
+                            <option value=""></option>
+                            <option value="y">Yes</option>
+                            <option value="n">No</option>
+                        </select>
+                        <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+                <div class="form-block">
+                    <label for="filterIsReversable">Is Reversable</label>
+                    <div class="div-select">
+                        <select id="filterIsReversable" name="filterIsReversable" class="form-select" ng-model="filterIsReversable">
+                            <option value="">All</option>
+                            <option value="y">Yes</option>
+                            <option value="n">No</option>
+                        </select>
+                        <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="display-inline search-bar">
+            <a href="#" class="button bg-green" id="addReasonBtn"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Reason Code</a>
+        </div>
+    </form>
+</div>
+<section class="page__content__reasons" id="pageContentReasons">
+    <form id="formNewReason" name="formNewReason" class="forms" novalidate ng-submit="saveRc()">
+        <div class="page__content__reasons__form font-medium">
+            <div class="col-12 font-icon">
+                <div class="col-6 dpl-inline-block blue">ADD REASON CODE</div>
+                <div class="col-6 dpl-inline-block text-right"><span class="close-form" id="closeForm">X</span></div>
+            </div>
+            <div class="col-12">&nbsp;</div>
+            <div class="col-3 dpl-inline-block row">
+                <div class="form-row">
+                    <label for="listOptions">Card Type Id</label>
+                    <div class="div-select">
+                        <select id="listOptions" name="listOptions" class="form-select" ng-model="tempRc.cardTypeId">
+                            <option value="1" selected>Visa</option>
+                            <option value="2">Mastercard</option>
+                        </select>
+                        <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Is Preventable</label>
+                    <input name="isPreventable" type="radio" ng-model="tempRc.isPreventable" value="y" checked> Yes
+                    <input name="isPreventable" type="radio" ng-model="tempRc.isPreventable" value="n"> No
+                </div>
+                <div class="form-row">
+                    <label>Is Reversable</label>
+                    <input name="isReversable" type="radio" ng-model="tempRc.isReversable" value="y" checked> Yes
+                    <input name="isReversable" type="radio" ng-model="tempRc.isReversable" value="n"> No
+                </div>
+            </div>
+            <div class="col-3 dpl-inline-block row">
+                <div class="form-row">
+                    <label for="reasonCode">Reason Code</label>
+                    <input type="text" name="reasonCode" id="reasonCode" ng-model="tempRc.reasonCode" ng-required="true">
+                    <span class="error-message" ng-show="formNewReason.reasonCode.$dirty && formNewReason.reasonCode.$error.required">Please enter a Reason Code</span>
+                </div>
+                <div class="form-row">
+                    <label for="reasonCodeDescription">Reason Code Description</label>
+                    <textarea name="reasonCodeDescription" id="reasonCodeDescription" ng-model="tempRc.reasonCodeDescription" rows="5" ng-required="true"></textarea>
+                    <span class="error-message" ng-show="formNewReason.reasonCodeDescription.$dirty && formNewReason.reasonCodeDescription.$error.required">Please enter a Description</span>
+                </div>
+            </div>
+            <div class="col-3 dpl-inline-block row">
+                <div class="form-row">
+                    <label for="notes">Notes</label>
+                </div>
+                <div class="form-row">
+                    <textarea name="notes" id="notes" ng-model="tempRc.notes" rows="5" ng-required="true"></textarea>
+                    <span class="error-message" ng-show="formNewReason.notes.$dirty && formNewReason.notes.$error.required">Please enter a Note</span>
+                </div>
+            </div>
+            <div class="col-3 dpl-inline-block row">&nbsp;</div>
+            <div class="col-12">
+                <input type="submit" value="Save" class="button bg-blue save-btn" />
+            </div>
+        </div>
+    </form>
+</section>
+<div class="clear"></div>
+<section class="page__content__reasonslist">
+    <div class="page__content__reasonslist__header">
+        <div class="page__content__reasonslist__header__tools inline-block">
+            <form class="forms">
+                <ul class="inline-list">
+                    <li>
+                        <button class="button bg-blue"><i class="fa fa-download" aria-hidden="true"></i> Archive</button>
+                    </li>
+                    <li>
+                        <div class="div-select">
+                            <select name="listOptions" class="form-select" disabled>
+                                <option>Export</option>
+                                <option>PDF</option>
+                                <option>CSV</option>
+                            </select>
+                            <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="page__content__reasonslist__header__filter inline-block text-right font-small valign-bottom">
+            <form class="forms">
+                <label for="listFilter">View Records:</label>
+                <div class="div-select">
+                    <select name="listFilter" class="form-select">
+                        <option>20</option>
+                        <option>30</option>
+                        <option>40</option>
+                    </select>
+                    <div class="select-caret blue"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="page__content__reasonslist__body">
+        <table class="list-table font-small" ng-init="loadRcData()">
+            <thead>
+                <tr>
+                    <th class="col-1 float-left">
+                        <span class="th-big">Select All</span>
+                        <span class="th-small">All</span>
+                    </th>
+                    <th class="col-1 float-left">
+                        <span class="th-big">Card Type ID</span>
+                        <span class="th-small">CTI</span>
+                    </th>
+                    <th class="col-1 float-left">
+                        <span class="th-big">Reason Code</span>
+                        <span class="th-small">RC</span>
+                    </th>
+                    <th class="col-3 float-left">
+                        <span class="th-big">Reason Code Description</span>
+                        <span class="th-small">RCD</span>
+                    </th>
+                    <th class="col-1 float-left">
+                        <span class="th-big">Is Preventable</span>
+                        <span class="th-small">IP</span>
+                    </th>
+                    <th class="col-1 float-left">
+                        <span class="th-big">Is Reversable</span>
+                        <span class="th-small">IR</span>
+                    </th>
+                    <th class="col-3 float-left">Notes</th>
+                    <th class="col-1 float-left">
+                        <span class="th-big">Actions</span>
+                        <span class="th-small"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in rc.data | filter:{ reasonCodeDescription:filterText, cardTypeId:filterCardType, isPreventable:filterIsPreventable, isReversable:filterIsReversable }">
+                    <td class="col-1 float-left">
+                        <input type="checkbox" name="selectItem" disabled>
+                    </td>
+                    <td class="col-1 float-left">{{d.cardTypeId}}</td>
+                    <td class="col-1 float-left">{{d.reasonCode}}</td>
+                    <td class="col-3 text-left float-left">{{d.reasonCodeDescription}}</td>
+                    <td class="col-1 float-left">{{d.isPreventable}}</td>
+                    <td class="col-1 float-left">{{d.isReversable}}</td>
+                    <td class="col-3 text-left float-left">{{d.notes | limitCharacters : 60}}</td>
+                    <td class="col-1 font-icon float-left">
+                        <a href="#" ng-click="editRc(d.id)" class="edit-icon" onclick="animationsModule.showForm()"><i class="fa fa-pencil i-padding" aria-hidden="true"></i></a>
+                        <a href="#" <i class="fa fa-download" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

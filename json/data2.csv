@@ -1,0 +1,8 @@
+monDD,notFought,TrueFraud,FriendlyFraud,ExcludedReason,ChargebackNotification,SecondChargeback,InArbitration,PreArbitration,CardType,shore
+May 01,8,2,0,23,2,3,3,12,1,1
+May 02,3,4,3,4,3,5,4,5,2,1
+May 03,4,3,5,2,12,6,8,3,2,2
+May 04,11,12,4,7,4,3,2,8,1,2
+May 05,9,5,7,5,5,4,9,7,1,1
+May 06,4,7,6,9,2,1,6,5,2,2
+May 07,6,9,9,11,8,0,3,9,1,2

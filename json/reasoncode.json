@@ -1,0 +1,29 @@
+ [
+		{
+			"id": 1,
+			"cardTypeId":"1", 
+			"reasonCode":"4532",
+			"reasonCodeDescription":"Service not provided or merchandise not received",
+			"isPreventable":"y",
+			"isReversable":"n",
+			"notes":"This chargeback occurs when either a Merchant is unable and likes the most amazing thing on earth"
+		},
+		{
+			"id": 2,
+			"cardTypeId":"2", 
+			"reasonCode":"30",
+			"reasonCodeDescription":"Cancelled recurring transaction",
+			"isPreventable":"n",
+			"isReversable":"n",
+			"notes":"This chargeback occurs when some merchants try to produce a transaction"
+		},
+		{
+			"id": 3,
+			"cardTypeId":"1", 
+			"reasonCode":"42-os",
+			"reasonCodeDescription":"Fraudulent multiple transactions",
+			"isPreventable":"y",
+			"isReversable":"y",
+			"notes":"This chargeback occurs when someone tries to cheat the system and then"
+		}
+] 
