@@ -3,13 +3,13 @@ Chargeback Gurus - Candidate Test / Sebastian Ospina (sebasospina343@gmail.com)
 Mini Project: CRUD UI, dynamic charter using D3JS and AngularJS.
 
 INSTALLATION
-Using NodeJS and npm you can go to root folder and run in terminal
+You need to install NodeJS in your local machine first (https://nodejs.org/es/). Using NodeJS and npm you can go to root folder and run in terminal
 
 npm install
 
 And then to start local server
 
-nam start
+npm start
 
 This command will start a local server in your machine running in localhost:8000. Point your browser to localhost:8000
 
