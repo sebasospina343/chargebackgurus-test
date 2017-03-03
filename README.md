@@ -18,20 +18,35 @@ If you don’t have NodeJS installed in your system, you can place this folder i
 Note: I strongly suggest using the pre-built local server using npm. Running it in a normal local server could impact on AngularJS routes resulting in an error.
 
 Stack and tools used:
+
 NPM
+
 Bower
+
 Gulp
+
 Jasmine
+
 Protractor
+
 Local Web Server
+
 Saas
+
 Javascript
+
 AngularJS 1.5
+
 HTML5
+
 CSS3
+
 JSON
+
 BEM
+
 SVG
+
 Adobe Photoshop
 
 Description: the mini app contains two different parts.
@@ -44,15 +59,25 @@ Note: although the app is intended to be cross-browser, some bugs SVG related co
 The charts had been constructed as AngularJS directives with their own scope, allowing isolation and portability to even other apps.
 
 Other characteristics:
-SPA using AngularJS $stateProvider states
-Implementation of all kind of AngularJS functionalities (controllers, directives, services, filters, built-in services and the $apply function to control digest loop for other scripts happening outside AngularJS)
-Custom Javascript AnimationsModule using Javascript design pattern Reveal Module to expose a public API. All the animations within this module had been written for this specific project manipulating DOM elements
-Unit tests to test AngularJS filters and controllers. Tests are written in Jasmine. To see tests passing, open the file SpecRunner.html located in test/SpecRunner.html. The test suite file can be found at test/spec.js
-Sass as css preprocessor. To see how css was built for this project and syntax used, take a look at sass file located at /sass/styles.css
-BEM (block, element, modifier) css methodology
-Creation of grid system specific for this project (emulating bootstrap like frameworks for responsive layouts). The calculations are made thanks to sass
-Responsive site for different screen sizes (Desktop, tablet, smartphone)
-Automation of Sass compilations for css rendering using GulpJS and watchers.
+
+- SPA using AngularJS $stateProvider states
+
+- Implementation of all kind of AngularJS functionalities (controllers, directives, services, filters, built-in services and the $apply function to control digest loop for other scripts happening outside AngularJS)
+
+- Custom Javascript AnimationsModule using Javascript design pattern Reveal Module to expose a public API. All the animations within this module had been written for this specific project manipulating DOM elements
+
+- Unit tests to test AngularJS filters and controllers. Tests are written in Jasmine. To see tests passing, open the file SpecRunner.html located in test/SpecRunner.html. The test suite file can be found at test/spec.js
+
+- Sass as css preprocessor. To see how css was built for this project and syntax used, take a look at sass file located at /sass/styles.css
+
+- BEM (block, element, modifier) css methodology
+
+- Creation of grid system specific for this project (emulating bootstrap like frameworks for responsive layouts). The calculations are made thanks to sass
+
+- Responsive site for different screen sizes (Desktop, tablet, smartphone)
+
+- Automation of Sass compilations for css rendering using GulpJS and watchers.
+
 
 01/03/2017
 
